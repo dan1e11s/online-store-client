@@ -1,0 +1,16 @@
+.sidebar {
+  min-width: 264px;
+  border: 1px solid #cfcfe4;
+  border-radius: 18px;
+  padding: 12px;
+}
+.tag {
+  font-size: 16px;
+  padding: 12px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+.active {
+  background-color: #515352;
+  color: #fff;
+}

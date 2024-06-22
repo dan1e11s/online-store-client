@@ -1,0 +1,56 @@
+.card {
+  width: 100%;
+  display: flex;
+  gap: 30px;
+  padding: 0 100px;
+}
+
+.content {
+  width: 100%;
+  text-align: center;
+  padding-top: 50px;
+}
+
+.content h2 {
+  margin-bottom: 30px;
+}
+
+.image {
+  border: 1px solid black;
+  width: 75%;
+  height: 465px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+}
+
+.image img {
+  max-width: 80%;
+  max-height: 80%;
+  object-fit: contain;
+}
+
+.parametres {
+  margin-bottom: 40px;
+}
+
+.description {
+  margin-bottom: 40px;
+}
+
+.btn {
+  text-transform: uppercase;
+  padding: 15px 105px;
+  background-color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #c9c9cf;
+}
+
+.main {
+  margin-bottom: 70px;
+}
