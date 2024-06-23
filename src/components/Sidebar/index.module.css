@@ -14,3 +14,22 @@
   background-color: #515352;
   color: #fff;
 }
+
+@media all and (max-width: 800px) {
+  .sidebar {
+    min-width: 240px;
+  }
+}
+
+@media all and (max-width: 730px) {
+  .sidebar {
+    min-width: 220px;
+  }
+}
+
+@media all and (max-width: 690px) {
+  .sidebar {
+    width: 100%;
+    text-align: center;
+  }
+}

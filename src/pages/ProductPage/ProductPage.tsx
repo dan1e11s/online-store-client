@@ -1,19 +1,48 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { useProducts } from '../../store';
+import { useCart, useProducts } from '../../store';
 
 import Container from '../../components/Container/Container';
+import Loader from '../../components/Loader/Loader';
+
+import withReactContent from 'sweetalert2-react-content';
+import Swal from 'sweetalert2';
 
 import styles from './index.module.css';
 
 const ProductPage = () => {
+  const [isHaveCart, setIsHaveCart] = useState(false);
   const { oneProduct, getOneProduct } = useProducts((state) => state);
+  const { addToCart, cartItems, deleteCartItem } = useCart((state) => state);
 
   const { id } = useParams();
 
   useEffect(() => {
     getOneProduct(id as string);
-  }, [id]);
+  }, [id, getOneProduct]);
+
+  useEffect(() => {
+    const isHave = cartItems.find((item) => item.product.id === oneProduct?.id);
+    isHave ? setIsHaveCart(true) : setIsHaveCart(false);
+  }, [cartItems, oneProduct?.id, setIsHaveCart]);
+
+  const handleAddBtn = (id: number) => {
+    addToCart(id);
+    withReactContent(Swal).fire({
+      title: 'Good job!',
+      text: 'Added to cart!',
+      icon: 'success',
+    });
+  };
+
+  const handleRemoveBtn = (id: number) => {
+    deleteCartItem(id);
+    withReactContent(Swal).fire({
+      title: 'Good job!',
+      text: 'Removed to cart!',
+      icon: 'success',
+    });
+  };
 
   return (
     <div>
@@ -35,11 +64,25 @@ const ProductPage = () => {
                   </p>
                 </div>
                 <p className={styles.description}>{oneProduct.description}</p>
-                <button className={styles.btn}>Add To Cart</button>
+                {isHaveCart ? (
+                  <button
+                    className={styles.btn}
+                    onClick={() => handleRemoveBtn(oneProduct.id)}
+                  >
+                    Remove from Cart
+                  </button>
+                ) : (
+                  <button
+                    className={styles.btn}
+                    onClick={() => handleAddBtn(oneProduct.id)}
+                  >
+                    Add to cart
+                  </button>
+                )}
               </div>
             </div>
           ) : (
-            <div>Loading...</div>
+            <Loader />
           )}
         </Container>
       </main>

@@ -2,9 +2,17 @@ import { MdOutlineShoppingCart } from 'react-icons/md';
 
 import styles from './index.module.css';
 import { useNavigate } from 'react-router-dom';
+import { useCart } from '../../store';
+import { useEffect } from 'react';
 
 const Navbar = () => {
+  const { cartItems, itemCount, setItemCount } = useCart((state) => state);
+
   const navigate = useNavigate();
+
+  useEffect(() => {
+    setItemCount(cartItems.length);
+  }, [cartItems.length, setItemCount]);
 
   return (
     <nav className={styles.navbar}>
@@ -12,8 +20,9 @@ const Navbar = () => {
         Online Store
       </div>
       <div className={styles.actions}>
-        <button onClick={() => navigate('cart')}>
+        <button onClick={() => navigate('cart')} className={styles.cartButton}>
           <MdOutlineShoppingCart size={24} />
+          {itemCount > 0 && <span className={styles.badge}>{itemCount}</span>}
         </button>
       </div>
     </nav>

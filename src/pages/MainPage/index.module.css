@@ -8,4 +8,17 @@
   display: flex;
   align-items: start;
   gap: 24px;
+  padding: 0 15px;
+}
+
+@media all and (max-width: 690px) {
+  .wrapper {
+    flex-direction: column;
+  }
+}
+
+@media all and (max-width: 475px) {
+  .wrapper {
+    padding: 0 25px;
+  }
 }

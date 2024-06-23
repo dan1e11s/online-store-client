@@ -3,6 +3,7 @@ import { useProducts } from '../../store';
 import ProductItem from '../ProductItem/ProductItem';
 
 import styles from './index.module.css';
+import Loader from '../Loader/Loader';
 
 const ProductsList = () => {
   const { getProducts, activeCategory } = useProducts((state) => state);
@@ -18,7 +19,7 @@ const ProductsList = () => {
 
   useEffect(() => {
     getProducts();
-  }, []);
+  }, [getProducts]);
 
   return (
     <div className={styles.list}>
@@ -27,7 +28,7 @@ const ProductsList = () => {
           <ProductItem key={product.id} product={product} />
         ))
       ) : (
-        <>Loading...</>
+        <Loader />
       )}
     </div>
   );

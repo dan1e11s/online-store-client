@@ -25,7 +25,9 @@ export interface CartItem {
 
 export interface CartItemsState {
   cartItems: CartItem[];
+  itemCount: number;
   error: string | null;
+  setItemCount: (value: number) => void;
   getCartItems: () => Promise<void>;
   addToCart: (productId: number) => Promise<void>;
   deleteCartItem: (productId: number) => Promise<void>;

@@ -24,3 +24,21 @@
   background: transparent;
   cursor: pointer;
 }
+
+.cartButton {
+  position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: rgb(88, 86, 86);
+  color: white;
+  border-radius: 50%;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.8rem;
+}

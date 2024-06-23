@@ -54,3 +54,42 @@
 .main {
   margin-bottom: 70px;
 }
+
+@media all and (max-width: 800px) {
+  .card {
+    flex-direction: column-reverse;
+  }
+
+  .image {
+    width: 100%;
+  }
+}
+
+@media all and (max-width: 530px) {
+  .image {
+    height: 400px;
+  }
+}
+
+@media all and (max-width: 470px) {
+  .card {
+    padding: 0 50px;
+  }
+
+  .btn {
+    padding: 10px 75px;
+    font-size: 12px;
+  }
+}
+
+@media all and (max-width: 400px) {
+  .image {
+    height: 350px;
+  }
+}
+
+@media all and (max-width: 350px) {
+  .card {
+    padding: 0 20px;
+  }
+}
