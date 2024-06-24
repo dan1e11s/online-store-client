@@ -8,7 +8,7 @@
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "start": "vite build && pm2 serve dist --name yourAppName --spa"
+    "start": "vite build && pm2 serve dist --name client --spa"
   },
   "dependencies": {
     "axios": "^1.7.2",
