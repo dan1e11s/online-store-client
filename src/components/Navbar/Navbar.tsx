@@ -17,7 +17,7 @@ const Navbar = () => {
   return (
     <nav className={styles.navbar}>
       <div className={styles.logo} onClick={() => navigate('/')}>
-        Online Store
+        Fake Shop
       </div>
       <div className={styles.actions}>
         <button onClick={() => navigate('cart')} className={styles.cartButton}>
