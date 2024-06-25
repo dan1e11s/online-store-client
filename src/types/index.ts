@@ -9,9 +9,12 @@ export interface Product {
 
 export interface ProductsState {
   products: Product[];
+  categories: string[];
   oneProduct: Product | null;
   activeCategory: string;
+  query: string;
   error: string | null;
+  setQuery: (value: string) => void;
   setActiveCategory: (value: string) => void;
   getProducts: () => Promise<void>;
   getOneProduct: (id: string) => Promise<void>;

@@ -11,6 +11,15 @@
   padding: 0 15px;
 }
 
+.search {
+  width: 100%;
+  padding: 0 15px;
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @media all and (max-width: 690px) {
   .wrapper {
     flex-direction: column;

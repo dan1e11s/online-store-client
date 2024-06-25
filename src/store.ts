@@ -5,19 +5,46 @@ import { persist } from 'zustand/middleware';
 
 const API = import.meta.env.VITE_BASE_API;
 
-export const useProducts = create<ProductsState>((set) => ({
+export const useProducts = create<ProductsState>((set, get) => ({
   products: [],
+  categories: [],
   oneProduct: null,
   activeCategory: 'All Categories',
+  query: '',
   error: null,
+  setQuery: (value: string) => {
+    set({ query: value });
+  },
   setActiveCategory: (value: string) => {
     set({ activeCategory: value });
   },
   getProducts: async () => {
     try {
-      const { data } = await axios<Product[]>(`${API}/product`);
+      const query = get().query;
+      let data;
 
-      set({ products: data, error: null });
+      if (query !== '') {
+        const res = await axios<Product[]>(`${API}/product?q=${query}`);
+        data = res.data;
+        set({ products: data, error: null });
+      } else {
+        const res = await axios<Product[]>(`${API}/product`);
+        data = res.data;
+        set({
+          products: data,
+          categories:
+            data
+              .map((product) => product.category)
+              .filter(
+                (category, index, self) => self.indexOf(category) === index
+              )
+              .map(
+                (category) =>
+                  category.charAt(0).toUpperCase() + category.slice(1)
+              ) || [],
+          error: null,
+        });
+      }
     } catch (error) {
       set({ error: (error as Error).message });
     }
