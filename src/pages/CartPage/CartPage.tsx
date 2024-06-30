@@ -21,10 +21,15 @@ const CartPage = () => {
   }, [getCartItems]);
 
   const getTotalPrice = () => {
-    return cartItems.reduce(
-      (total, item) => total + item.product.price * item.quantity,
-      0
-    );
+    return cartItems.reduce((total, item) => {
+      return (
+        total +
+        (item.product.sale !== 0
+          ? item.product.price - (item.product.price * item.product.sale) / 100
+          : item.product.price) *
+          item.quantity
+      );
+    }, 0);
   };
 
   const placeOrder = () => {
@@ -52,7 +57,13 @@ const CartPage = () => {
                 <img src={item.product.images[0]} alt={item.product.title} />
                 <div>
                   <h3>{item.product.title}</h3>
-                  <p>Price: ${item.product.price}</p>
+                  <p>
+                    Price: $
+                    {item.product.sale !== 0
+                      ? item.product.price -
+                        (item.product.price * item.product.sale) / 100
+                      : item.product.price}
+                  </p>
                   <p>Quantity: {item.quantity}</p>
                 </div>
                 <div className={styles.actions}>
@@ -66,7 +77,7 @@ const CartPage = () => {
               </div>
             ))}
             <div className={styles.cartSummary}>
-              <h3>Total: ${getTotalPrice()}</h3>
+              <h3>Total: ${getTotalPrice().toFixed(2)}</h3>
               <button onClick={placeOrder}>Place Order</button>
             </div>
           </div>

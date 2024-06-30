@@ -5,10 +5,14 @@ import styles from './index.module.css';
 const Sidebar = () => {
   const { activeCategory, setActiveCategory } = useProducts((state) => state);
 
-  const categories = useProducts((state) => [
+  const categories = [
     'All Categories',
-    ...state.categories,
-  ]);
+    'New',
+    'Sale',
+    'Mans',
+    'Womans',
+    'Kids',
+  ];
 
   return (
     <div className={styles.sidebar}>

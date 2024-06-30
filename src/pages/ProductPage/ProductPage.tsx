@@ -56,12 +56,33 @@ const ProductPage = () => {
               <div className={styles.content}>
                 <h2>{oneProduct.title}</h2>
                 <div className={styles.parametres}>
-                  <p>Price: ${oneProduct.price}</p>
+                  <p>
+                    Price:{' '}
+                    <span className={styles.text}>${oneProduct.price}</span>{' '}
+                  </p>
                   <p>
                     Category:{' '}
-                    {oneProduct.category.charAt(0).toUpperCase() +
-                      oneProduct.category.slice(1)}
+                    <span className={styles.text}>
+                      {oneProduct.category.charAt(0).toUpperCase() +
+                        oneProduct.category.slice(1)}
+                    </span>
                   </p>
+                  <p>
+                    Size: <span className={styles.text}>{oneProduct.size}</span>
+                  </p>
+                  <p>
+                    Color:{' '}
+                    <span className={styles.text}>
+                      {oneProduct.color.charAt(0).toUpperCase() +
+                        oneProduct.color.slice(1)}
+                    </span>
+                  </p>
+                  {+oneProduct.sale !== 0 && (
+                    <p>
+                      Sale:{' '}
+                      <span className={styles.text}>{oneProduct.sale}%</span>{' '}
+                    </p>
+                  )}
                 </div>
                 <p className={styles.description}>{oneProduct.description}</p>
                 {isHaveCart ? (

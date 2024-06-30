@@ -55,6 +55,17 @@
   margin-bottom: 70px;
 }
 
+.text {
+  font-weight: bold;
+}
+
+.color {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
 @media all and (max-width: 800px) {
   .card {
     flex-direction: column-reverse;

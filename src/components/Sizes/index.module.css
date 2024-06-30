@@ -1,0 +1,40 @@
+.size {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0 30px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.size button {
+  background-color: transparent;
+  border: 1px solid #c9c9c9;
+  outline: none;
+  padding: 8px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  transition: all 0.3s ease;
+}
+
+.size button:hover {
+  background-color: #c9c9c9;
+}
+
+.size .active {
+  background-color: #000;
+  color: #fff;
+}
+
+.size .active:hover {
+  background-color: #232323;
+}
+
+@media all and (max-width: 356px) {
+  .size {
+    margin-bottom: 5px;
+  }
+}

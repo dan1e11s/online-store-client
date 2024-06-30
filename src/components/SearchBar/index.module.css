@@ -1,8 +1,10 @@
 .container {
+  min-width: 350px;
   display: flex;
   align-items: center;
 }
 .input {
+  width: 100%;
   padding: 8px 22px;
   margin-right: 8px;
   border-radius: 4px;
@@ -11,4 +13,19 @@
 
 .input:focus {
   outline: none;
+}
+
+@media all and (max-width: 620px) {
+  .container {
+    width: 150px;
+  }
+}
+
+@media all and (max-width: 520px) {
+  .container {
+    min-width: 100%;
+  }
+  .input {
+    margin-right: 0;
+  }
 }

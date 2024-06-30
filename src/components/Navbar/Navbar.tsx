@@ -4,6 +4,7 @@ import styles from './index.module.css';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../../store';
 import { useEffect } from 'react';
+import { SearchBar } from '../SearchBar/SearchBar';
 
 const Navbar = () => {
   const { cartItems, itemCount, setItemCount } = useCart((state) => state);
@@ -18,6 +19,9 @@ const Navbar = () => {
     <nav className={styles.navbar}>
       <div className={styles.logo} onClick={() => navigate('/')}>
         Fake Shop
+      </div>
+      <div className={styles.search}>
+        <SearchBar />
       </div>
       <div className={styles.actions}>
         <button onClick={() => navigate('cart')} className={styles.cartButton}>

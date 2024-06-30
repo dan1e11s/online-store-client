@@ -26,12 +26,28 @@ const ProductItem = ({ product }: Props) => {
       className={styles.card}
       onClick={() => navigate(`product/${product.id}`)}
     >
+      {+product.sale !== 0 && (
+        <div className={styles.sale}>Sale {product.sale + '%'}</div>
+      )}
+
       <div className={styles.image}>
         <img src={product.images[0]} alt={product.title} />
       </div>
       <div className={styles.title}>
         <p>{product.title}</p>
-        <p>${product.price}</p>
+        {+product.sale !== 0 ? (
+          <p>
+            <span style={{ color: '#555555' }}>
+              $
+              <span style={{ textDecoration: 'line-through' }}>
+                {product.price}
+              </span>
+            </span>{' '}
+            ${product.price - Number(product.price * product.sale) / 100}
+          </p>
+        ) : (
+          <p>${product.price}</p>
+        )}
       </div>
       {isHaveCart ? (
         <button

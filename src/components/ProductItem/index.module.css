@@ -53,3 +53,14 @@
 .card button:hover {
   background-color: #c9c9cf;
 }
+
+.sale {
+  width: 70px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  margin-left: 5px;
+  color: #555;
+}

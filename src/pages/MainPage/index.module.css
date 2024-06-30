@@ -11,16 +11,20 @@
   padding: 0 15px;
 }
 
-.search {
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  padding: 0 15px;
-  margin-bottom: 25px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 5;
 }
 
 @media all and (max-width: 690px) {
+  .leftContent {
+    width: 100%;
+  }
   .wrapper {
     flex-direction: column;
   }

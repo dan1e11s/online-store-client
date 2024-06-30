@@ -1,0 +1,25 @@
+.actions {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 35px;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.actions button {
+  padding: 5px 25px;
+  text-transform: uppercase;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  border: 1px solid #c9c9c9;
+  border-radius: 8px;
+  font-size: 12px;
+  transition: all 0.3s ease;
+}
+
+.actions button:hover {
+  background-color: #c9c9cf;
+  cursor: pointer;
+}

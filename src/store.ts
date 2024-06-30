@@ -1,6 +1,12 @@
 import axios from 'axios';
 import { create } from 'zustand';
-import { CartItem, CartItemsState, Product, ProductsState } from './types';
+import {
+  CartItem,
+  CartItemsState,
+  ModalState,
+  Product,
+  ProductsState,
+} from './types';
 import { persist } from 'zustand/middleware';
 
 const API = import.meta.env.VITE_BASE_API;
@@ -137,3 +143,23 @@ export const useCart = create<CartItemsState>()(
     { name: 'cart' }
   )
 );
+
+export const useModal = create<ModalState>((set) => ({
+  isModal: false,
+  range: [0, 1000],
+  activeColors: [],
+  activeSizes: [],
+  filters: null,
+  sortOption: null,
+  setFilters: (filterObj) => set({ filters: filterObj }),
+  setSortOption: (option) => set({ sortOption: option }),
+  setActiveSizes: (sizes) => set({ activeSizes: sizes }),
+  setActiveColors: (colors) => set({ activeColors: colors }),
+  setRange: (values) => set({ range: values }),
+  setOpenModal: () => {
+    set({ isModal: true });
+  },
+  setCloseModal: () => {
+    set({ isModal: false });
+  },
+}));
