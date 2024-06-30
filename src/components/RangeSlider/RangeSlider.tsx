@@ -1,29 +1,29 @@
-// import { useEffect } from 'react';
-// import { useModal, useProducts } from '../../store';
+import { useEffect } from 'react';
+import { useModal, useProducts } from '../../store';
 
-// import Slider from 'rc-slider';
-// import 'rc-slider/assets/index.css';
+import Slider from 'rc-slider';
+import 'rc-slider/assets/index.css';
 
 import styles from './index.module.css';
 
 const RangeSlider: React.FC = () => {
-  // const { products } = useProducts((state) => state);
-  // const { range, setRange } = useModal((state) => state);
+  const { products } = useProducts((state) => state);
+  const { range, setRange } = useModal((state) => state);
 
-  // const handleChange = (newRange: number | number[]) => {
-  //   if (Array.isArray(newRange) && newRange.length === 2) {
-  //     setRange([newRange[0], newRange[1]]);
-  //   }
-  // };
+  const handleChange = (newRange: number | number[]) => {
+    if (Array.isArray(newRange) && newRange.length === 2) {
+      setRange([newRange[0], newRange[1]]);
+    }
+  };
 
-  // useEffect(() => {
-  //   const allPrices = products.map((item) => +item.price).sort((a, b) => a - b);
-  //   setRange([allPrices[0], allPrices[allPrices.length - 1]]);
-  // }, [products]);
+  useEffect(() => {
+    const allPrices = products.map((item) => +item.price).sort((a, b) => a - b);
+    setRange([allPrices[0], allPrices[allPrices.length - 1]]);
+  }, [products]);
 
   return (
     <div className={styles.slider}>
-      {/* <div className={styles.priceInput}>
+      <div className={styles.priceInput}>
         <div className={styles.field}>
           <span>Min</span>
           <input
@@ -43,8 +43,8 @@ const RangeSlider: React.FC = () => {
             onChange={() => console.log('min value')}
           />
         </div>
-      </div> */}
-      {/* <Slider
+      </div>
+      <Slider
         range
         min={0}
         max={500}
@@ -57,7 +57,7 @@ const RangeSlider: React.FC = () => {
           { borderColor: 'black', outline: 'none', boxShadow: 'none' },
         ]}
         railStyle={{ backgroundColor: '#c9c9c9' }}
-      /> */}
+      />
     </div>
   );
 };
