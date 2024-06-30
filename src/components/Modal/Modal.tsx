@@ -1,9 +1,9 @@
 import { useModal } from '../../store';
 
-// import RangeSlider from '../RangeSlider/RangeSlider';
+import RangeSlider from '../RangeSlider/RangeSlider';
 import Colors from '../Colors/Colors';
 import Sizes from '../Sizes/Sizes';
-// import SortBy from '../SortBy/SortBy';
+import SortBy from '../SortBy/SortBy';
 import { IoClose } from 'react-icons/io5';
 
 import styles from './index.module.css';
@@ -25,7 +25,7 @@ const Modal = () => {
       </div>
       <div>
         <h3>Price</h3>
-        {/* <RangeSlider /> */}
+        <RangeSlider />
       </div>
       <div>
         <h3>Color</h3>
@@ -37,7 +37,7 @@ const Modal = () => {
       </div>
       <div>
         <h3 style={{ marginBottom: '10px' }}>Sort</h3>
-        {/* <SortBy /> */}
+        <SortBy />
       </div>
       <div className={styles.apply}>
         <button
