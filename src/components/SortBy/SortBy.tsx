@@ -8,10 +8,10 @@ interface Option {
 }
 
 const options: Option[] = [
-  { value: 'descending price', label: 'Descending price' },
-  { value: 'increasing price', label: 'Increasing price' },
-  { value: 'A-Z', label: 'A-Z' },
-  { value: 'Z-A', label: 'Z-A' },
+  { value: 'descending price', label: 'Цена по убыванию' },
+  { value: 'increasing price', label: 'Цена по возрастанию' },
+  { value: 'A-Z', label: 'А-Я' },
+  { value: 'Z-A', label: 'Я-А' },
 ];
 const SortBy = () => {
   const [selectedOption, setSelectedOption] =
