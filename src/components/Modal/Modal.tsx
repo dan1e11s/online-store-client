@@ -27,16 +27,16 @@ const Modal = () => {
         <h3>Price</h3>
         <RangeSlider />
       </div>
-      <div>
+      <div className={styles.color}>
         <h3>Color</h3>
         <Colors />
       </div>
-      <div>
+      <div className={styles.size}>
         <h3>Size</h3>
         <Sizes />
       </div>
-      <div>
-        <h3 style={{ marginBottom: '10px' }}>Sort</h3>
+      <div className={styles.sortOp}>
+        <h3>Sort</h3>
         <SortBy />
       </div>
       <div className={styles.apply}>

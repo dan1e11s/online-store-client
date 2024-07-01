@@ -1,6 +1,6 @@
 .modal {
   width: 60%;
-  height: 85%;
+  height: 80%;
   border: 1px solid #c9c9c9;
   border-radius: 18px;
   position: absolute;
@@ -9,12 +9,13 @@
   transform: translate(-50%, -50%);
   z-index: 5;
   background-color: #fff;
-  padding: 25px;
+  padding: 20px;
   text-align: center;
-}
-
-.apply {
-  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 }
 
 .apply button {
@@ -36,6 +37,16 @@
   top: 15px;
   right: 15px;
   cursor: pointer;
+}
+
+.color,
+.size,
+.sortOp {
+  width: 100%;
+}
+
+.sortOp {
+  padding: 0 30px;
 }
 
 @media all and (max-width: 870px) {
