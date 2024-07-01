@@ -24,19 +24,19 @@ const Modal = () => {
         <IoClose size={24} />
       </div>
       <div>
-        <h3>Price</h3>
+        <h3>Цена</h3>
         <RangeSlider />
       </div>
       <div className={styles.color}>
-        <h3>Color</h3>
+        <h3>Цвет</h3>
         <Colors />
       </div>
       <div className={styles.size}>
-        <h3>Size</h3>
+        <h3>Размер</h3>
         <Sizes />
       </div>
       <div className={styles.sortOp}>
-        <h3>Sort</h3>
+        <h3 style={{ marginBottom: '5px' }}>Сортировать по</h3>
         <SortBy />
       </div>
       <div className={styles.apply}>
@@ -51,7 +51,7 @@ const Modal = () => {
             setCloseModal();
           }}
         >
-          apply
+          Применить
         </button>
       </div>
     </div>

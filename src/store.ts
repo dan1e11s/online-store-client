@@ -15,7 +15,7 @@ export const useProducts = create<ProductsState>((set, get) => ({
   products: [],
   categories: [],
   oneProduct: null,
-  activeCategory: 'All Categories',
+  activeCategory: 'Все Категории',
   query: '',
   error: null,
   setQuery: (value: string) => {

@@ -18,7 +18,7 @@ export const SearchBar = () => {
         type="text"
         value={query}
         onChange={handleInputChange}
-        placeholder="Search..."
+        placeholder="Поиск..."
         className={styles.input}
       />
     </div>

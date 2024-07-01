@@ -27,7 +27,7 @@ const ProductItem = ({ product }: Props) => {
       onClick={() => navigate(`product/${product.id}`)}
     >
       {+product.sale !== 0 && (
-        <div className={styles.sale}>Sale {product.sale + '%'}</div>
+        <div className={styles.sale}>Скидка {product.sale + '%'}</div>
       )}
 
       <div className={styles.image}>

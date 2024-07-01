@@ -1,14 +1,13 @@
 import { useCart } from '../../store';
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Container from '../../components/Container/Container';
+
 import { MdDelete } from 'react-icons/md';
 import { FiPlusCircle } from 'react-icons/fi';
-import Swal from 'sweetalert2';
-import withReactContent from 'sweetalert2-react-content';
-
-import Container from '../../components/Container/Container';
-import styles from './index.module.css';
-import { useNavigate } from 'react-router-dom';
 import { FaShoppingCart } from 'react-icons/fa';
+
+import styles from './index.module.css';
 
 const CartPage = () => {
   const { cartItems, getCartItems, deleteCartItem, addToCart, clearCartItems } =
@@ -33,18 +32,8 @@ const CartPage = () => {
   };
 
   const placeOrder = () => {
-    withReactContent(Swal)
-      .fire({
-        title: 'Good job!',
-        text: 'Order placed!',
-        icon: 'success',
-      })
-      .then((res) => {
-        if (res.isConfirmed) {
-          navigate('/');
-        }
-      });
     clearCartItems();
+    navigate('/');
   };
 
   return (
@@ -58,13 +47,13 @@ const CartPage = () => {
                 <div>
                   <h3>{item.product.title}</h3>
                   <p>
-                    Price: $
+                    Цена: $
                     {item.product.sale !== 0
                       ? item.product.price -
                         (item.product.price * item.product.sale) / 100
                       : item.product.price}
                   </p>
-                  <p>Quantity: {item.quantity}</p>
+                  <p>Количество: {item.quantity}</p>
                 </div>
                 <div className={styles.actions}>
                   <button onClick={() => addToCart(item.product.id)}>
@@ -77,14 +66,14 @@ const CartPage = () => {
               </div>
             ))}
             <div className={styles.cartSummary}>
-              <h3>Total: ${getTotalPrice().toFixed(2)}</h3>
-              <button onClick={placeOrder}>Place Order</button>
+              <h3>Сумма: ${getTotalPrice().toFixed(2)}</h3>
+              <button onClick={placeOrder}>Заказать</button>
             </div>
           </div>
         ) : (
           <div className={styles.emptyCartContainer}>
             <FaShoppingCart className={styles.icon} />
-            <p className={styles.message}>Cart is empty!</p>
+            <p className={styles.message}>Корзина пустая!</p>
           </div>
         )}
       </Container>

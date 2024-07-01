@@ -5,9 +5,6 @@ import { useCart, useProducts } from '../../store';
 import Container from '../../components/Container/Container';
 import Loader from '../../components/Loader/Loader';
 
-import withReactContent from 'sweetalert2-react-content';
-import Swal from 'sweetalert2';
-
 import styles from './index.module.css';
 
 const ProductPage = () => {
@@ -28,20 +25,10 @@ const ProductPage = () => {
 
   const handleAddBtn = (id: number) => {
     addToCart(id);
-    withReactContent(Swal).fire({
-      title: 'Good job!',
-      text: 'Added to cart!',
-      icon: 'success',
-    });
   };
 
   const handleRemoveBtn = (id: number) => {
     deleteCartItem(id);
-    withReactContent(Swal).fire({
-      title: 'Good job!',
-      text: 'Removed to cart!',
-      icon: 'success',
-    });
   };
 
   return (
@@ -57,21 +44,22 @@ const ProductPage = () => {
                 <h2>{oneProduct.title}</h2>
                 <div className={styles.parametres}>
                   <p>
-                    Price:{' '}
+                    Цена:{' '}
                     <span className={styles.text}>${oneProduct.price}</span>{' '}
                   </p>
                   <p>
-                    Category:{' '}
+                    Категория:{' '}
                     <span className={styles.text}>
                       {oneProduct.category.charAt(0).toUpperCase() +
                         oneProduct.category.slice(1)}
                     </span>
                   </p>
                   <p>
-                    Size: <span className={styles.text}>{oneProduct.size}</span>
+                    Размер:{' '}
+                    <span className={styles.text}>{oneProduct.size}</span>
                   </p>
                   <p>
-                    Color:{' '}
+                    Цвет:{' '}
                     <span className={styles.text}>
                       {oneProduct.color.charAt(0).toUpperCase() +
                         oneProduct.color.slice(1)}
@@ -79,7 +67,7 @@ const ProductPage = () => {
                   </p>
                   {+oneProduct.sale !== 0 && (
                     <p>
-                      Sale:{' '}
+                      Скидка:{' '}
                       <span className={styles.text}>{oneProduct.sale}%</span>{' '}
                     </p>
                   )}
@@ -90,14 +78,14 @@ const ProductPage = () => {
                     className={styles.btn}
                     onClick={() => handleRemoveBtn(oneProduct.id)}
                   >
-                    Remove from Cart
+                    Удалить из корзины
                   </button>
                 ) : (
                   <button
                     className={styles.btn}
                     onClick={() => handleAddBtn(oneProduct.id)}
                   >
-                    Add to cart
+                    Добавить в корзину
                   </button>
                 )}
               </div>

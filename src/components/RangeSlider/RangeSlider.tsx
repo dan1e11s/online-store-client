@@ -25,7 +25,7 @@ const RangeSlider: React.FC = () => {
     <div className={styles.slider}>
       <div className={styles.priceInput}>
         <div className={styles.field}>
-          <span>Min</span>
+          <span>Мин</span>
           <input
             type="number"
             className={styles.inputMin}
@@ -35,7 +35,7 @@ const RangeSlider: React.FC = () => {
         </div>
         <div className={styles.separator}>-</div>
         <div className={styles.field}>
-          <span>Max</span>
+          <span>Макс</span>
           <input
             type="number"
             className={styles.inputMax}

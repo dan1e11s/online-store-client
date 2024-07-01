@@ -6,12 +6,12 @@ const Sidebar = () => {
   const { activeCategory, setActiveCategory } = useProducts((state) => state);
 
   const categories = [
-    'All Categories',
-    'New',
-    'Sale',
-    'Mans',
-    'Womans',
-    'Kids',
+    'Все Категории',
+    'Новинки',
+    'Распродажа',
+    'Мужчинам',
+    'Женщинам',
+    'Детям',
   ];
 
   return (

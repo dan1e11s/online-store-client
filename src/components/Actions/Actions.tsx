@@ -6,7 +6,7 @@ const Actions = () => {
 
   return (
     <div className={styles.actions}>
-      <button onClick={setOpenModal}>Filter / Sort</button>
+      <button onClick={setOpenModal}>Фильтрация</button>
     </div>
   );
 };

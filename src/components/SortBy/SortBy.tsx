@@ -29,6 +29,7 @@ const SortBy = () => {
       value={selectedOption}
       onChange={handleChange}
       isClearable={true}
+      placeholder="Выберите..."
     />
   );
 };

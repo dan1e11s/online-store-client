@@ -12,18 +12,19 @@ const ProductsList = () => {
   const products = useProducts((state) => {
     let filteredProducts = state.products;
 
-    if (activeCategory !== 'All Categories') {
-      if (activeCategory === 'New') {
+    if (activeCategory !== 'Все Категории') {
+      if (activeCategory === 'Новинки') {
         filteredProducts = filteredProducts.filter(
           (product) => product.isNew === true
         );
-      } else if (activeCategory === 'Sale') {
+      } else if (activeCategory === 'Распродажа') {
         filteredProducts = filteredProducts.filter(
           (product) => +product.sale !== 0
         );
       } else {
         filteredProducts = filteredProducts.filter(
-          (product) => product.category === activeCategory.toLowerCase()
+          (product) =>
+            product.category.toLowerCase() === activeCategory.toLowerCase()
         );
       }
     }
