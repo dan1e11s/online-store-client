@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { create } from 'zustand';
 import {
   CartItem,
@@ -8,8 +7,7 @@ import {
   ProductsState,
 } from './types';
 import { persist } from 'zustand/middleware';
-
-const API = import.meta.env.VITE_BASE_API;
+import api from './api';
 
 export const useProducts = create<ProductsState>((set, get) => ({
   products: [],
@@ -30,11 +28,11 @@ export const useProducts = create<ProductsState>((set, get) => ({
       let data;
 
       if (query !== '') {
-        const res = await axios<Product[]>(`${API}/product?q=${query}`);
+        const res = await api<Product[]>(`/product?q=${query}`);
         data = res.data;
         set({ products: data, error: null });
       } else {
-        const res = await axios<Product[]>(`${API}/product`);
+        const res = await api<Product[]>('/product');
         data = res.data;
         set({
           products: data,
@@ -57,7 +55,7 @@ export const useProducts = create<ProductsState>((set, get) => ({
   },
   getOneProduct: async (id: string) => {
     try {
-      const { data } = await axios<Product>(`${API}/product/${id}`);
+      const { data } = await api<Product>(`/product/${id}`);
 
       set({ oneProduct: data, error: null });
     } catch (error) {
@@ -79,7 +77,7 @@ export const useCart = create<CartItemsState>()(
         })),
       getCartItems: async () => {
         try {
-          const { data } = await axios(`${API}/cart`);
+          const { data } = await api('/cart');
 
           set({ cartItems: data, error: null });
         } catch (error) {
@@ -88,13 +86,10 @@ export const useCart = create<CartItemsState>()(
       },
       addToCart: async (productId: number) => {
         try {
-          const { data: cartItem } = await axios.post<CartItem>(
-            `${API}/cart/add`,
-            {
-              productId,
-              quantity: 1,
-            }
-          );
+          const { data: cartItem } = await api.post<CartItem>('/cart/add', {
+            productId,
+            quantity: 1,
+          });
 
           set((state) => {
             const isHave = state.cartItems.find(
@@ -118,7 +113,7 @@ export const useCart = create<CartItemsState>()(
       },
       deleteCartItem: async (productId: number) => {
         try {
-          await axios.delete(`${API}/cart/remove/${productId}`);
+          await api.delete(`/cart/remove/${productId}`);
 
           set((state) => ({
             cartItems: state.cartItems.filter(
@@ -132,7 +127,7 @@ export const useCart = create<CartItemsState>()(
       },
       clearCartItems: async () => {
         try {
-          await axios.delete(`${API}/cart/clear`);
+          await api.delete(`/cart/clear`);
 
           set({ cartItems: [], error: null });
         } catch (error) {
